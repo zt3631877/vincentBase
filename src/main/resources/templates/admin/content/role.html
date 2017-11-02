@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>header</title>
+
+</head>
+
+<body>
+
+	<div id="content" th:fragment="content">
+		<div class="container">
+			<!-- Breadcrumbs line -->
+			<div class="crumbs">
+				<ul id="breadcrumbs" class="breadcrumb">
+					<li><i class="icon-home"></i> <a href="/">仪表盘</a></li>
+					<li class="current">权限管理
+					</li>
+				</ul>
+
+			</div>
+			<!-- /Breadcrumbs line -->
+
+ 
+			<!-- /Page Header -->
+
+			<!--=== Page Content ===-->
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="widget box">
+		 				<div class="widget-header">
+							<h4>
+								<i class="icon-reorder"></i> 权限配置
+							</h4>
+							<div class="toolbar no-padding">
+								<div class="btn-group">
+									<span class="btn btn-xs widget-collapse"><i
+										class="icon-angle-down"></i></span>
+								</div>
+							</div>
+						</div>
+						<div class="widget-content">
+							<div class="row">
+								<div class="col-md-12">
+									<!-- Tabs-->
+									<div class="tabbable tabbable-custom">
+										<ul class="nav nav-tabs">
+											<li class="active"><a href="#admin" data-toggle="tab">管理员</a></li>
+											<li><a href="#stationmaster" data-toggle="tab">站长</a></li>
+											<li><a href="#experts" data-toggle="tab">专家及工作人员</a></li>
+											<li><a href="#user" data-toggle="tab">爱好者</a></li>
+										</ul>
+										<div class="tab-content">
+
+											<div class="tab-pane active" id="admin">
+												<div class="col-md-6">
+													<div th:if="${param.error} or ${error}"
+														class="alert alert-danger fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存异常，请重新操作。
+													</div>
+													<div th:if="${param.ok}" class="alert alert-info fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存正常。
+													</div>								
+								 
+													<form class="form-horizontal row-border"
+														action="/admin/roleSave" method="post">
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleAdmin" value="dashboard"/>&nbsp;&nbsp;仪表盘 
+																</label> 
+															</div>															 
+														</div>
+			 											<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleAdmin" value="user"/>&nbsp;&nbsp;用户管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleAdmin" value="role"/>&nbsp;&nbsp;权限管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleAdmin" value="news"/>&nbsp;&nbsp;新闻管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleAdmin" value="thirdparty"/>&nbsp;&nbsp;第三方配置 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleAdmin" value="swagger"/>&nbsp;&nbsp;在线API手册 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-actions">
+															<input type="hidden" value="admin" name="roleCode"/>
+															<input value="确认" class="btn btn-primary pull-right"
+																type="submit" />
+														</div>
+													</form>
+												</div>
+											</div>										
+											<!--1end-->
+											<div class="tab-pane" id="stationmaster">
+												<div class="col-md-6">
+													<div th:if="${param.error} or ${error}"
+														class="alert alert-danger fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存异常，请重新操作。
+													</div>
+													<div th:if="${param.ok}" class="alert alert-info fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存正常。
+													</div>								
+								 
+													<form class="form-horizontal row-border"
+														action="/admin/roleSave" method="post">
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleStationmaster" value="dashboard"/>&nbsp;&nbsp;仪表盘 
+																</label> 
+															</div>															 
+														</div>
+			 											<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleStationmaster" value="user"/>&nbsp;&nbsp;用户管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleStationmaster" value="role"/>&nbsp;&nbsp;权限管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleStationmaster" value="news"/>&nbsp;&nbsp;新闻管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleStationmaster" value="thirdparty"/>&nbsp;&nbsp;第三方配置 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleStationmaster" value="swagger"/>&nbsp;&nbsp;在线API手册 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-actions">
+														<input type="hidden" value="stationmaster" name="roleCode"/>
+															<input value="确认" class="btn btn-primary pull-right"
+																type="submit" />
+														</div>
+													</form>
+												</div>
+											</div>	
+											<!--2end-->
+											<div class="tab-pane" id="experts">
+												<div class="col-md-6">
+													<div th:if="${param.error} or ${error}"
+														class="alert alert-danger fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存异常，请重新操作。
+													</div>
+													<div th:if="${param.ok}" class="alert alert-info fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存正常。
+													</div>								
+								 
+													<form class="form-horizontal row-border"
+														action="/admin/roleSave" method="post">
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleExperts" value="dashboard"/>&nbsp;&nbsp;仪表盘 
+																</label> 
+															</div>															 
+														</div>
+			 											<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleExperts" value="user"/>&nbsp;&nbsp;用户管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleExperts" value="role"/>&nbsp;&nbsp;权限管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleExperts" value="news"/>&nbsp;&nbsp;新闻管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleExperts" value="thirdparty"/>&nbsp;&nbsp;第三方配置 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleExperts" value="swagger"/>&nbsp;&nbsp;在线API手册 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-actions">
+															<input type="hidden" value="experts" name="roleCode"/>
+															<input value="确认" class="btn btn-primary pull-right"
+																type="submit" />
+														</div>
+													</form>
+												</div>
+											</div>	
+											<!--3end-->
+											<div class="tab-pane" id="user">
+												<div class="col-md-6">
+													<div th:if="${param.error} or ${error}"
+														class="alert alert-danger fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存异常，请重新操作。
+													</div>
+													<div th:if="${param.ok}" class="alert alert-info fade in">
+														<i class="icon-remove close" data-dismiss="alert"></i>
+														修改保存正常。
+													</div>								
+								 
+													<form class="form-horizontal row-border"
+														action="/admin/roleSave" method="post">
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleUser" value="dashboard"/>&nbsp;&nbsp;仪表盘 
+																</label> 
+															</div>															 
+														</div>
+			 											<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleUser" value="user"/>&nbsp;&nbsp;用户管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleUser" value="role"/>&nbsp;&nbsp;权限管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleUser" value="news"/>&nbsp;&nbsp;新闻管理 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleUser" value="thirdparty"/>&nbsp;&nbsp;第三方配置 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-group">
+															<div class="col-md-9">															
+																<label class="control-label">
+																<input type="checkbox" name="roleUser" value="swagger"/>&nbsp;&nbsp;在线API手册 
+																</label> 
+															</div>															 
+														</div>
+														<div class="form-actions">
+														<input type="hidden" value="user" name="roleCode"/>
+															<input value="确认" class="btn btn-primary pull-right"
+																type="submit" />
+														</div>
+													</form>
+												</div>
+											</div>	
+											<!--4end-->
+										</div>
+										 <!--tab-content-->
+									</div>
+									<!--END TABS-->
+								</div>
+
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.widget-content --> 
+	 
+					</div>
+				</div>
+			</div>
+	 
+		 
+ 
+			
+			<!-- /.row -->
+			<!-- /Page Content -->
+		</div>
+		<!-- /.container -->
+		<script  th:inline="javascript">
+		 /*<![CDATA[*/  
+		    var selected = /*[[${roleAdmin}]]*/;
+			$.each(selected,function(i,item){
+			$("input[name='roleAdmin'][value="+item+"]").attr("checked","checked");
+			});	   
+			var selected2 = /*[[${roleStationmaster}]]*/;
+			$.each(selected2,function(i,item){
+			$("input[name='roleStationmaster'][value="+item+"]").attr("checked","checked");
+			});	  
+			var selected3 = /*[[${roleExperts}]]*/;
+			$.each(selected3,function(i,item){
+			$("input[name='roleExperts'][value="+item+"]").attr("checked","checked");
+			});	  
+			var selected4 = /*[[${roleUser}]]*/;
+			$.each(selected4,function(i,item){
+			$("input[name='roleUser'][value="+item+"]").attr("checked","checked");
+			});	
+		 
+		/*]]>*/
+		</script>
+	</div>
+
+</body>
+</html>

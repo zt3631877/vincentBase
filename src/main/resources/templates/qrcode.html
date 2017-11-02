@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>支付</title>
+    <script type="text/javascript" src="/assets/js/qrcode.js"></script>
+    <style>
+        #qrcode{
+            /*text-align: center;*/
+            /*display: table-cell;*/
+            /*width: 96px;*/
+            /*height: 96px;*/
+            /*vertical-align:middle;*/
+            /*position: relative;*/
+        }
+
+    </style>
+</head>
+
+<body style="text-align:center">
+<div id="qrcode" style="width:590px;" > 
+</div>
+
+ 
+
+	<!-- Header -->
+	<header class="header navbar navbar-fixed-top" role="banner"
+		>
+		<!-- Top Navigation Bar -->
+	 
+ <input type="hidden" id="code" th:value="${code}" />
+ 	 
+</header>
+ 
+</body>
+<script>
+
+    window.onload =function(){
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 196,//设置宽高
+            height : 196
+        });
+        qrcode.makeCode(document.getElementById("code").value);
+       // document.getElementById("send").onclick =function(){
+       //     location.href="/api/v1/getQrcode";
+       // }
+    }
+</script>
+</html>

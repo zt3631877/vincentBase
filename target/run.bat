@@ -1,0 +1,1 @@
+java -jar proil-0.1.jar

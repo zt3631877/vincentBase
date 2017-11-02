@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>header</title>
+</head>
+
+<body>
+
+	<div id="content" th:fragment="content">
+		<div class="container">
+			<!-- Breadcrumbs line -->
+			<div class="crumbs">
+				<ul id="breadcrumbs" class="breadcrumb">
+					<li><i class="icon-home"></i> <a href="/">仪表盘</a></li>
+				</ul>
+
+			</div>
+			<!-- /Breadcrumbs line -->
+
+			<!--=== Page Header ===-->
+			<div class="page-header">
+				<div class="page-title">
+					<h3>仪表盘</h3>
+					<span th:inline="text">欢迎使用，[[${#httpServletRequest.remoteUser}]]!</span>
+				</div>
+
+				<!-- Page Stats -->
+				<ul class="page-stats">
+					<li>
+						<div class="summary">
+							<span>今日订单</span>
+							<h3 th:text="1"> </h3>
+						</div>
+						<div id="sparkline-bar" class="graph sparkline hidden-xs">20,15,8,50,20,40,20,30,20,15,30,20,25,20</div>
+						<!-- Use instead of sparkline e.g. this:
+							<div class="graph circular-chart" data-percent="73">73%</div>
+							-->
+					</li>
+					<li>
+						<div class="summary">
+							<span>今日交易</span>
+							<h3 th:text="1"> </h3>
+						</div>
+						<div id="sparkline-bar2" class="graph sparkline hidden-xs">20,15,8,50,20,40,20,30,20,15,30,20,25,20</div>
+					</li>
+				</ul>
+				<!-- /Page Stats -->
+			</div>
+			<!-- /Page Header -->
+
+			<!--=== Page Content ===-->
+			<!--=== Statboxes ===-->
+			<div class="row row-bg">
+				<!-- .row-bg -->
+
+				<div class="col-sm-6 col-md-6">
+					<div class="statbox widget box box-shadow">
+						<div class="widget-content">
+							<div class="visual red">
+								<i class="icon-user"></i>
+							</div>
+							<div class="title">用户数量</div>
+							<div class="value" th:text="${userscount}"></div>
+							<a class="more" th:href="@{/admin/user}">查看更多 <i
+								class="pull-right icon-angle-right"></i></a>
+						</div>
+					</div>
+					<!-- /.smallstat -->
+				</div>
+				<!-- /.col-md-3 -->
+
+				<div class="col-sm-6 col-md-6">
+					<div class="statbox widget box box-shadow">
+						<div class="widget-content">
+							<div class="visual yellow">
+								<i class="icon-dollar"></i>
+							</div>
+							<div class="title">新闻数量</div>
+							<div class="value" th:text="${newscount}"></div>
+							<a class="more" th:href="@{/admin/news}">查看更多 <i
+								class="pull-right icon-angle-right"></i></a>
+						</div>
+					</div>
+					<!-- /.smallstat -->
+				</div>
+				<!-- /.col-md-3 -->
+
+			</div>
+			<!-- /.row -->
+			<!-- /Statboxes -->
+
+			<!--=== Circular Charts ===-->
+ 
+			<!-- /Circular Charts -->
+
+			<!--=== Filled Charts ===-->
+			 
+			<!-- /.row -->
+			<!-- /Page Content -->
+		</div>
+		<!-- /.container -->
+
+	</div>
+</body>
+</html>
